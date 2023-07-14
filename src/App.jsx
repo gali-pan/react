@@ -12,16 +12,16 @@ function App(props) {
 				<div className="col-3">
 					<div className="nav flex-column nav-pills" aria-orientation="vertical">
 						<NavLink className="nav-link" to="/">
-							Главная
+							Main page
 						</NavLink>
 						<NavLink className="nav-link" to="profile">
-							Профиль
+							My Profile
 						</NavLink>
 						<NavLink className="nav-link" to="friends">
-							Друзья
+							My Friends
 						</NavLink>
 						<NavLink className="nav-link" to="settings">
-							Настройки
+							Settings
 						</NavLink>
 					</div>
 				</div>
