@@ -1,11 +1,11 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Main } from "./components/Main";
-import { Messages } from "./components/Messages";
+import { Friends } from "./components/Friends";
 import { Profile } from "./components/Profile";
 import { Settings } from "./components/Settings";
 
-function App() {
+function App(props) {
 	return (
 		<div className="container mt-5">
 			<div className="row">
@@ -17,8 +17,8 @@ function App() {
 						<NavLink className="nav-link" to="profile">
 							Профиль
 						</NavLink>
-						<NavLink className="nav-link" to="messages">
-							Сообщения
+						<NavLink className="nav-link" to="friends">
+							Друзья
 						</NavLink>
 						<NavLink className="nav-link" to="settings">
 							Настройки
@@ -28,8 +28,8 @@ function App() {
 				<div className="col-9">
 					<Routes>
 						<Route path="/" element={<Main />} />
-						<Route path="/profile" element={<Profile />} />
-						<Route path="/messages" element={<Messages />} />
+						<Route path="/profile" element={<Profile function={props.function.key_getUser}/>} />
+						<Route path="/friends" element={<Friends function={props.function.key_getUsers}/>} />
 						<Route path="/settings" element={<Settings />} />
 					</Routes>
 				</div>
