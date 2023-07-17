@@ -1,21 +1,22 @@
 const user = {
   id: "1",
-  name: "Ivan",
-  lastname: "Ivanov",
-  email: "ivan@mail.ru",
+  name: "Olga",
+  lastname: "Sidorova",
+  email: "olga@mail.ru",
   avatar:
-    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=300&q=80",
-  about: "Here i will tell you about myself",
+    "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww&w=300&q=80",
+  about:
+    "Let me introduce myself. My name is Olga. Im 25 and I am student of the faculty Automation and Computing Machines. My major is Information Systems and Technologies. So in my future I will develop information systems for the different organizations.",
 };
 
 const users = {
   0: {
     id: 5,
-    name: "Olga",
-    lastname: "Petrova",
-    email: "olga@mail.ru",
+    name: "Ivan",
+    lastname: "Petrov",
+    email: "ivan@mail.ru",
     avatar:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww&w=300&q=80}",
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=300&q=80",
   },
   1: {
     id: 6,
@@ -51,8 +52,8 @@ const users = {
   },
 };
 export function getUser(userId) {
-  for (let i=0; i<Object.keys(users).length; i++){
-    if (users [i].id==userId) return users [i];
+  for (let i = 0; i < Object.keys(users).length; i++) {
+    if (users[i].id == userId) return users[i];
   }
   return user;
 }
