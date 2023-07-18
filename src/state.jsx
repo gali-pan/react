@@ -53,16 +53,16 @@ const user = {
 // };
 let users = {};
 
-export function getUser() {
-	// for (let i = 0; i < Object.keys(users).length; i++) {
-	//   if (users[i].id == userId) return users[i];
-	// }
-	return user;
+export function getUser(userId) {
+  for (let i = 0; i < Object.keys(users).length; i++) {
+    if (users[i].id == userId) return users[i];
+  }
+  return user;
 }
 
 export async function getUsers() {
-	let response = await fetch("http://frontend.galinapankratova.ru/getUsers");
-	users = await response.json();
-	console.log(users);
-	return users;
+  let response = await fetch("http://frontend.galinapankratova.ru/getUsers");
+  users = await response.json();
+  console.log(users);
+  return users;
 }

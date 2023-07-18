@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import React from "react";
+
 const TableRow = (props) => {
   return (
     <tr>
@@ -14,42 +16,52 @@ const TableRow = (props) => {
   );
 };
 
-export const Friends = (props) => {
-  let users = props.function();
-
-  let usersCount = Object.keys(users).length;
-  let userRow = [];
-
-  for (let i = 0; i < usersCount; i++) {
-    userRow.push(
-      <TableRow
-        id={users[i].id}
-        index={i}
-        key={i}
-        name={users[i].name}
-        surname={users[i].surname}
-        email={users[i].email}
-      />
-    );
+export class Friends extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { userRow: [] };
   }
 
-  return (
-    <>
-      <h2 className="text-center">Friends list:</h2>
-      <div className="row">
-        <div className="col-12 mx-auto">
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name & Surname</th>
-                <th scope="col">Email</th>
-              </tr>
-            </thead>
-            <tbody>{userRow}</tbody>
-          </table>
+  componentDidMount() {
+    this.props.function().then((users) => {
+      console.log(users);
+      let usersCount = users.length;
+      let userRow = [];
+
+      for (let i = 0; i < usersCount; i++) {
+        userRow.push(
+          <TableRow
+            id={users[i].id}
+            index={i}
+            key={i}
+            name={users[i].name}
+            surname={users[i].surname}
+            email={users[i].email}
+          />
+        );
+      }
+      this.setState({userRow: userRow})
+    });
+  }
+  render() {
+    return (
+      <>
+        <h2 className="text-center">Friends list:</h2>
+        <div className="row">
+          <div className="col-12 mx-auto">
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name & Surname</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody>{this.state.userRow}</tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  }
+}
