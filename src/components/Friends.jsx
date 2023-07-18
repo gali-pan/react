@@ -6,7 +6,7 @@ const TableRow = (props) => {
       <th scope="row">{props.index + 1}</th>
       <td>
         <NavLink to={"/profile/" + props.id}>
-          {props.name} {props.lastname}
+          {props.name} {props.surname}
         </NavLink>
       </td>
       <td>{props.email}</td>
@@ -27,7 +27,7 @@ export const Friends = (props) => {
         index={i}
         key={i}
         name={users[i].name}
-        lastname={users[i].lastname}
+        surname={users[i].surname}
         email={users[i].email}
       />
     );
