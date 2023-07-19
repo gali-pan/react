@@ -4,6 +4,7 @@ import { Main } from "./components/Main";
 import { Friends } from "./components/Friends";
 import { Profile } from "./components/Profile";
 import { Settings } from "./components/Settings";
+import { Shop } from "./components/Shop";
 
 function App(props) {
 	return (
@@ -23,6 +24,9 @@ function App(props) {
 						<NavLink className="nav-link" to="settings">
 							Settings
 						</NavLink>
+						<NavLink className="nav-link" to="shop">
+							Shop
+						</NavLink>
 					</div>
 				</div>
 				<div className="col-9">
@@ -31,6 +35,7 @@ function App(props) {
 						<Route path="/profile/*" element={<Profile function={props.function.key_getUser}/>} />
 						<Route path="/friends" element={<Friends function={props.function.key_getUsers}/>} />
 						<Route path="/settings" element={<Settings />} />
+						<Route path="/shop" element={<Shop />} />
 					</Routes>
 				</div>
 			</div>
